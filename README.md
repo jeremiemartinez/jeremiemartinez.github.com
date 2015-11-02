@@ -1,1 +1,0 @@
-# jeremiemartinez.github.com
