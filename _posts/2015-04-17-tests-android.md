@@ -4,7 +4,7 @@ title: No more excuses, Android testing is possible
 comments: true
 ---
 
-*This article is a translation of an article I wrote in French and published on [Xebia blog](http://blog.xebia.fr/2015/04/17/plus-dexcuses-les-tests-en-android-cest-possible/)*
+*This article is a translation of an article I wrote in French and published on [Xebia blog](http://blog.xebia.fr/2015/04/17/plus-dexcuses-les-tests-en-android-cest-possible/).*
 
 In the Android community , access to samples , tutorials , articles on the latest widget or library is commonplace. However , it is very difficult to get good articles or documentation on the development of an architecture for testing an Android application.
 
