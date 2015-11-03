@@ -9,7 +9,7 @@ relative_permalinks: true
 # Setup
 title:            Jeremie Martinez
 tagline:          'Jeremie Blog'
-description:      'I am an Android Software Developer. Currently working at <a href="http://captaintrain.com" target="_blank">Captain Train</a>. This is my personal blog.'
+description:      'I am an Android Software Developer. This is my personal blog.'
 url:              'http://jeremie-martinez.com'
 baseurl:          /
 
