@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Inject the host IP with Gradle
+comments: true
 ---
 
 *This article is a translation of an article I wrote in French and published on [Xebia blog](http://blog.xebia.fr/2015/05/05/injecter-lip-host-avec-gradle/)*
