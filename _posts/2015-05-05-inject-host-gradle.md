@@ -4,7 +4,7 @@ title: Inject the host IP with Gradle
 comments: true
 ---
 
-*This article is a translation of an article I wrote in French and published on [Xebia blog](http://blog.xebia.fr/2015/05/05/injecter-lip-host-avec-gradle/)*
+*This article is a translation of an article I wrote in French and published on [Xebia blog](http://blog.xebia.fr/2015/05/05/injecter-lip-host-avec-gradle/).*
 
 When developing an Android application, we often, if not always, have to make network calls. So we regularly need to launch ourselves the backend application on our computer to develop and test.
 
