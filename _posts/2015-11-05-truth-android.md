@@ -278,7 +278,7 @@ public class TextViewSubject extends Subject<TextViewSubject, TextView> {
 }
 {% endhighlight %}
 
-Then, I use the `Subject` with a new library called  [screenshot-tests-for-android](http://facebook.github.io/screenshot-tests-for-android/#getting-started) from Facebook that deals great with testing custom views independently. Here is an example how it works associated with Truth:
+Then, I use the `TextViewSubject` with a new library called  [screenshot-tests-for-android](http://facebook.github.io/screenshot-tests-for-android/#getting-started) from Facebook that deals great with testing custom views independently. Here is an example how it works associated with Truth:
 
 {% highlight java %}
 @RunWith(AndroidJUnit4.class)
