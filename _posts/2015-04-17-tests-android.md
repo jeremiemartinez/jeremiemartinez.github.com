@@ -8,6 +8,8 @@ comments: true
 
 In the Android community , access to samples , tutorials , articles on the latest widget or library is commonplace. However , it is very difficult to get good articles or documentation on the development of an architecture for testing an Android application.
 
+<!-- more -->
+
 We often hear :
 > Testing Android is a real headache !
 
@@ -16,7 +18,6 @@ Or
 
 The purpose of this article is to show you that in 2015, it is possible to easily and effectively test an Android application. Be careful, you will have no more excuses…
 
-<!-- more -->
 
 ## History and misconceptions
 
