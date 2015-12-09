@@ -15,7 +15,7 @@ If you are an Android developer, I have no doubt you already know what [Lint](ht
 
 > Lint is a static code analysis tool that checks your Android project source files for potential bugs and optimization improvements
 
-Lint is the one that reminds you when you forgot to call `show()` on your `Toast`. It is also the one that makes sure you add a `contentDescription`on your `ImageView` to support accessibility. It exists tons of examples like these ones. Indeed, Lint can help you on a huge variety of subjects such as: correctness, security, performance, usability, accessibility, internationalization, and so on.
+Lint is the one that reminds you when you forgot to call `show()` on your `Toast`. It is also the one that makes sure you add a `contentDescription`on your `ImageView` to support accessibility. Tons of examples like these ones exist. Indeed, Lint can help you on a huge variety of subjects such as: correctness, security, performance, usability, accessibility, internationalization, and so on.
 
 Lint is easy to use since it can be run on any Android project with a simple Gradle task: `./gradlew lint`.
 It will generate a report about what it found out and classify the issues by category, priority or severity. This report should always be monitored since it is a great way to guarantee code quality and prevent some bugs in your app.
@@ -23,18 +23,17 @@ It will generate a report about what it found out and classify the issues by cat
 After this quick introduction, I hope that we can now all agree that Lint is a great help to understand some usages of the Android API Framework.
 
 
-## Writing your own, What use cases ?
+## Why would you write your own rules ?
 
-Something that most developers don't know is that you can write your own Lint rules. You may wonder, but why ?
-Well, there is a couple of use cases where having custom Lint rules can be very useful:
+Something that most developers don't know is that you can write your own Lint rules. There is a couple of use cases where having custom Lint rules can be very useful:
 
-1. If you are writing a library and you want to help developers to use it correctly, Lint rules are great since you can easily show them that they are forgetting something or doing something wrong.
+1. If you are writing a library/SDK and you want to help developers to use it correctly, Lint rules are great since you can easily show them that they are forgetting something or doing something wrong.
 
 2. If you have a new developer integrating your team, Lint rules can also be a great way to help him respecting your best practices or your naming conventions.
 
 ## Some examples
 
-As you might know, I recently joined [CaptainTrain](https://play.google.com/store/apps/details?id=com.capitainetrain.android) Android team and the following examples are based on two Lint rules, I implemented for our app. I think it shows perfectly how Lint can ensure that developers follow project code practices.
+As you might know, I recently joined [CaptainTrain](https://play.google.com/store/apps/details?id=com.capitainetrain.android) Android team. The following examples are based on two Lint rules I implemented for our app. I think it shows perfectly how Lint can ensure that developers follow project code practices.
 
 Let's get started.
 
@@ -60,13 +59,13 @@ dependencies {
 
 jar {
     manifest {
-        attributes('Lint-Registry': 'com.capitainetrain.android.lint.CaptainRegistry')
+        attributes('Lint-Registry': 'com.captaintrain.android.lint.CaptainRegistry')
     }
 }
 
 defaultTasks 'assemble'
 
-task install(type: Copy) {
+task install(type: Copy, dependsOn: build) {
     from configurations.lintChecks
     into System.getProperty('user.home') + '/.android/lint/'
 }
@@ -74,42 +73,46 @@ task install(type: Copy) {
 
 As you can see, we need two compile dependencies to implement our custom Lint rules, so make sure you have them. We also need to precise a `Lint-Registry`, we will see later what it is but for now remember it is mandatory. Finally we created a small task to help us installing quickly our new Lint rules.
 
-To compile and deploy this module, you will use the following command: `../gradlew clear build install`.
+To compile and deploy this module, you will use the following command: `../gradlew clean install`.
 
 Now that we configured our module, let's see how we can code our first rule.
 
 ### First rule: Attr must always be prefixed
 
-In CaptainTrain project, to avoid clash in attributes we always prefixed them by `ct`. This can be easily forgotten by new developers (like me), therefore I wrote the following rule:
+In the CaptainTrain project, we always prefix our attributes by `ct` to avoid clashes with other libraries. This can be easily forgotten by new developers (like me), therefore I wrote the following rule:
 
 {% highlight java %}
 public class AttrPrefixDetector extends ResourceXmlDetector {
 
  public static final Issue ISSUE = Issue.create("AttrNotPrefixed",
         "You must prefix your custom attr by `ct`",
-        "To avoid clashes, we prefixed all our attrs.",
+        "We prefix all our attrs to avoid clashes.",
         Category.TYPOGRAPHY,
         5,
         Severity.WARNING,
         new Implementation(AttrPrefixDetector.class,
                                Scope.RESOURCE_FILE_SCOPE));
 
+ // Only XML files
  @Override
  public boolean appliesTo(@NonNull Context context,
                           @NonNull File file) {
    return LintUtils.isXmlFile(file);
  }
 
+// Only values folder
  @Override
  public boolean appliesTo(ResourceFolderType folderType) {
     return ResourceFolderType.VALUES == folderType;
 }
 
+// Only attr tag
  @Override
  public Collection<String> getApplicableElements() {
     return Collections.singletonList(TAG_ATTR);
  }
 
+// Only name attribute
  @Override
  public Collection<String> getApplicableAttributes() {
     return Collections.singletonList(ATTR_NAME);
@@ -131,7 +134,7 @@ public class AttrPrefixDetector extends ResourceXmlDetector {
 }
 {% endhighlight %}
 
-As you can see we extend `ResourceXmlDetector`. A [`Detector`](https://android.googlesource.com/platform/tools/base/+/master/lint/libs/lint-api/src/main/java/com/android/tools/lint/detector/api/Detector.java) is a class that will permit us to find problems and then report an [`Issue`](https://android.googlesource.com/platform/tools/base/+/master/lint/libs/lint-api/src/main/java/com/android/tools/lint/detector/api/Issue.java). First of all, we need to specify what we are looking for:
+As you can see we extend `ResourceXmlDetector`. A [`Detector`](https://android.googlesource.com/platform/tools/base/+/master/lint/libs/lint-api/src/main/java/com/android/tools/lint/detector/api/Detector.java) is a class that will allow us to find problems and then report an [`Issue`](https://android.googlesource.com/platform/tools/base/+/master/lint/libs/lint-api/src/main/java/com/android/tools/lint/detector/api/Issue.java). First of all, we need to specify what we are looking for:
 
 - The first `appliesTo` method will keep only XML files.
 - The second `appliesTo` method will keep only `values` resource folders.
@@ -165,11 +168,11 @@ As you may think, the code required is quite easy and understandable. You only n
 
 The result in your Lint report will look like this :
 
-<center>![App screenshot]({{ site.baseurl }}public/images/log_rules_result.png)</center>
+<center>![App screenshot]({{ site.baseurl }}public/images/attr_rules_result.png)</center>
 
 ### Second rule: Log in production is forbidden
 
-In CaptainTrain app, we wrapped all our `Log` calls into a new class. Since we must never log in production, this class aims to disable logging when our `BuildConfig.DEBUG` is false. It also helps to format our logs and some other sweet features. This rule looks like this:
+In CaptainTrain app, we wrapped all our `Log` calls into a new class. Since in production, logging can be bad for performance and user's data security, this class aims to disable logging when our `BuildConfig.DEBUG` is false. It also helps to format our logs and some other sweet features. This rule looks like this:
 
 {% highlight java %}
 public class LoggerUsageDetector extends Detector
@@ -219,7 +222,7 @@ It might not be clear but several issues can be reported in a same `Detector`. I
 
 The result in your Lint report for this second rule will look like this :
 
-<center>![App screenshot]({{ site.baseurl }}public/images/attr_rules_result.png)</center>
+<center>![App screenshot]({{ site.baseurl }}public/images/log_rules_result.png)</center>
 
 
 ### Registry
