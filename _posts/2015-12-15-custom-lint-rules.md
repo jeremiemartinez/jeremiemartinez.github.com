@@ -2,6 +2,7 @@
 layout: post
 title: Help developers with custom lint rules
 comments: true
+visible: 1
 ---
 
 Last month, I attended a great BarCamp talk at Droidcon Paris from [Matthew Compton](https://twitter.com/ambergleam). It was about writing your own Lint rules. I was really intrigued and wanted to explore a bit more this great subject. Therefore, I came up with this article that aims to share my thoughts and dive into some concrete examples on how to integrate custom rules into your Android project.

@@ -5,6 +5,7 @@ title: Home
 
 <div class="posts">
   {% for post in paginator.posts %}
+   {% if post.visible != 1  %}
   <div class="post">
     <h1 class="post-title">
       <a href="{{ post.url }}">
@@ -23,6 +24,7 @@ title: Home
     <a href="{{ post.url }}">Read more …</a>
     </div>
   </div>
+  {% endif %}
   {% endfor %}
 </div>
 
