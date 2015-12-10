@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Help developers with custom lint rules
+title: Help developers with custom Lint rules
 comments: true
 visible: 1
 ---
