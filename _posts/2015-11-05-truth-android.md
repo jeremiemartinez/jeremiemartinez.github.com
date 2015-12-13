@@ -122,7 +122,7 @@ Now, you could ask yourself : *why choose Truth over Fest or AssertJ* ?
 
 First of all, Fest does not seem to be maintained anymore. It did not even migrate from GoogleCode that will soon close its doors. So it is not a real option.
 
-About AssertJ, it is a great framework that I have been using a lot in all my tests. It works perfectly. However, Truth does the exact same things **AND** more...
+About AssertJ, it is a great framework that was originally forked from Fest. I have been using a lot in all my tests. It works perfectly. However, Truth does the exact same things **AND** more...
 
 ### Easily extensible
 
