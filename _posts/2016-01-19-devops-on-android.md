@@ -15,16 +15,16 @@ To get continuous delivery, having a strong continuous integration is mandatory.
 
 First of all, every Android application should have a continuous integration. Yes it is said. Indeed, it provides several benefits that cannot be ignored when building an app nowadays. In my opinion, its best advantages are:
 
-* Build automation: No more : “but it builds on my machine“. It must build everywhere.
-* Fail early: Building after each push guarantees we break as early as possible.
-* Testing each build: Make sure our tests are always run.
-* Constant packaging: Prevent human mistakes when packaging our binary.
-* Faster release: Since we can be confident in each build, release becomes easier.
-* Increase confidence: Finally, we trust our code, our process and we reduce bad surprises.
+* Build automation: no more : “but it builds on my machine“. It must build everywhere.
+* Fail early: building after each push guarantees we break as early as possible.
+* Testing each build: make sure our tests are always run.
+* Constant packaging: prevent human mistakes when packaging our binary.
+* Faster release: since we can be confident in each build, release becomes easier.
+* Increase confidence: finally, we trust our code, our process and we reduce bad surprises.
 
 ### A classic continuous integration process
 
-First, we need a integration server like Jenkins or Travis. The following jobs are my standard configuration:
+First, we need an integration server like Jenkins or Travis. The following jobs are my standard configuration:
 
 * A job that will be launched by watching if a push on our source repository (Git, SVN, …) has been done. It watches dev branch and will compile our code, run unit tests and package our debug APK.
 * A job that runs once the first job succeed. It will run integration tests (with Espresso or Robotium) to ensure user experience by recreating scenarios and checking graphical content. You can use connected devices (difficult when your CI server is not easily reachable), Genymotion or the brand new built-in emulators that comes with Android Studio 2.0 (check it out!).
@@ -56,7 +56,7 @@ For instance at Captain Train, we release every [6 weeks](http://cyrilmottier.co
 * We upload our 72 screenshots (6 screenshots * 4 locales * 3 types)
 * We have a wear companion.
 
-It takes time. A lot. Lately, we decided that it was time to try to automate this process. Even if Our main goal was to reduce the time required to release. It would be great if we could also prevent human mistakes and be consistent release to release. It also gives us a great responsibility since developers control the whole release process. Indeed, marketing/communication teams would have to see with us how they can integrate their changes in our release.
+It takes time. A lot. Lately, we decided that it was time to try to automate this process. Even if our main goal was to reduce the time required to release. It would be great if we could also prevent human mistakes and be consistent release to release. It also gives us a great responsibility since developers control the whole release process. Indeed, marketing/communication teams would have to see with us how they can integrate their changes in our release.
 
 But let's be honest… On Android, developers does not control everything, Google does. However, it exposes a HTTP API to enable developer to interact easily with the Play Store console. They also provide clients for various languages such as Java (of course!), Python, Ruby, etc…
 
@@ -187,7 +187,7 @@ As you can see, the `id` you retrieve at the beginning of our code can be consid
 
 ## Conclusion
 
-It is now possible to follow the DevOps movement and have a strong continuous delivery even for Android App. At Captain Train, we chose to write our own publisher tool to ensure that we control every step and byte of this important step. We execute it as a script once our release job succeeded. However, it also exists a Jenkins [plugin](https://github.com/jenkinsci/google-play-android-publisher-plugin) or a Gradle [plugin](https://github.com/Triple-T/gradle-play-publisher) that can handle that for you. Just be sure to understand what is going on under the hood. You are dealing with production after all. It must be use with care.
+It is now possible to follow the DevOps movement and have a strong continuous delivery even for Android App. At Captain Train, we chose to write our own publisher tool to ensure that we control every step and byte of this important step. We execute it as a script once our release job succeeded. However, it also exists a Jenkins [plugin](https://github.com/jenkinsci/google-play-android-publisher-plugin) or a Gradle [plugin](https://github.com/Triple-T/gradle-play-publisher) that can handle that for you. Just be sure to understand what is going on under the hood. You are dealing with production after all. It must be used with care.
 
 Such tools and processes can allows you to be able to release a new version in production by simply pushing the master branch. It is easy, fast, reliable and time saving.
 
