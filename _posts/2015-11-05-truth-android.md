@@ -308,7 +308,7 @@ public class ItemViewTest {
 }
 {% endhighlight %}
 
-So as you may think, we could indeed create a Truth-Android the same way Square implemented [AssertJ-android](https://github.com/square/assertj-android). AssertJ-android supports all the views (and more) from the Android framework. It took time to build it and it is a real success. Right now, I just write `ViewSubject` according to my needs in my projects. However, it would be definitely interesting to create a library to regroup and share them.
+So as you may think, we could indeed create a Truth-Android the same way Square implemented [AssertJ-android](https://github.com/square/assertj-android). AssertJ-android supports all the views (and more) from the Android framework. It took time to build it and it is a real success. Right now, I just write `ViewSubject` according to my needs. However, it would be definitely interesting to create a library to regroup and share them.
 
 ### Brings failure strategies to testing
 
