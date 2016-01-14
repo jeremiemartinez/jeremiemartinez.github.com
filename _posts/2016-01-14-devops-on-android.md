@@ -2,7 +2,6 @@
 layout: post
 title: "DevOps on Android: From one Git push to production"
 comments: true
-visible: 1
 ---
 
 DevOps is a well known movement whose main objective is to automate software delivery. Indeed, DevOps aims at continuous testing, code quality, feature development and easier maintenance releases. Therefore, one of DevOps final goal is for developers to execute fast, reliable and automated release, ideally without any human involved during the process. It is called continuous delivery. I wrote this article to demonstrate that we can now achieve such goal on Android too and to share my thoughts and feedback about it.
