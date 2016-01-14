@@ -12,9 +12,9 @@ DevOps is a well known movement whose main objective is to automate software del
 
 To get continuous delivery, having a strong continuous integration is mandatory. It has been around Android environment for some time now, but to be clear let's see a reminder.
 
-First of all, every Android application should have a continuous integration. Yes it is said. Indeed, it provides several benefits that cannot be ignored when building an app nowadays. In my opinion, its best advantages are:
+First of all, every Android application should have a continuous integration. Yes I said it. Indeed, it provides several benefits that cannot be ignored when building an app nowadays. In my opinion, its best advantages are:
 
-* Build automation: no more : “but it builds on my machine“. It must build everywhere.
+* Build automation: no more “but it builds on my machine“. It must build everywhere.
 * Fail early: building after each push guarantees we break as early as possible.
 * Testing each build: make sure our tests are always run.
 * Constant packaging: prevent human mistakes when packaging our binary.
@@ -57,7 +57,7 @@ For instance at Captain Train, we release every [6 weeks](http://cyrilmottier.co
 
 It takes time. A lot. Lately, we decided that it was time to try to automate this process. Even if our main goal was to reduce the time required to release. It would be great if we could also prevent human mistakes and be consistent release to release. It also gives us a great responsibility since developers control the whole release process. Indeed, marketing/communication teams would have to see with us how they can integrate their changes in our release.
 
-But let's be honest… On Android, developers does not control everything, Google does. However, it exposes a HTTP API to enable developer to interact easily with the Play Store console. They also provide clients for various languages such as Java (of course!), Python, Ruby, etc…
+But let's be honest… On Android, developers does not control everything, Google does. However, it exposes a HTTP API to enable developers to interact easily with the Play Store console. They also provide clients for various languages such as Java (of course!), Python, Ruby, etc…
 
 On this article, I will focus on the Java client since this is probably the easiest access for Android developer.
 
@@ -67,23 +67,23 @@ Let's see how we can code our own custom Play Store publisher. It's a two step p
 
 #### Configuration
 
-First of all, if it is not already done, you must create a new project in the Google [console](https://console.developers.google.com/apis). Then we need to enable `Google Play Android Developer API`.
+First of all, if it is not already done, you must create a new project in the Google [console](https://console.developers.google.com/apis). Then, we need to enable `Google Play Android Developer API`.
 
 <center>![Enable API in console]({{ site.baseurl }}public/images/publisher_api_console.png)</center>
 
-Then, we must create a credential of type `Service account key`:
+Once it is done, we must create a credential of type `Service account key`:
 
 <center>![Create service account key]({{ site.baseurl }}public/images/publisher_credential_console.png)</center>
 
-Then, fill up the tiny form and download your credential as a JSON file. You need to save three values : `private_key_id`, `private_key` and `client_email`. Save the value `private_key` in its own file `secret.pem`.
+Finally, fill up the tiny form and download your credential as a JSON file. You need to save three values : `private_key_id`, `private_key` and `client_email`. Save the value `private_key` in its own file `secret.pem`.
 
-Once its done, let's go to the second console! \o/
+We are done with developers console… Now let's go to the second console! \o/
 
 Connect to your Play Store [console](https://play.google.com/apps/publish). You must go to `Settings` > `API access`:
 
 <center>![Enable API access]({{ site.baseurl }}public/images/publisher_playstore_console.png)</center>
 
-Then you must simply link your project. Finally in `Service accounts`, grant rights to the email you had under `client_email` in the JSON file.
+Then, you must simply link your project. Finally in `Service accounts`, grant rights to the email you had under `client_email` in the JSON file.
 
 Aaaaand it's done. You are all setup!
 
