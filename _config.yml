@@ -1,12 +1,15 @@
 # Dependencies
 markdown:         redcarpet
 highlighter:      pygments
+gems:
+  - jekyll-feed
 
 # Permalinks
 permalink:        pretty
 relative_permalinks: true
 
 # Setup
+name:             Jeremie Martinez Blog
 title:            Jeremie Martinez
 tagline:          'Jeremie Blog'
 description:      'I am an Android Software Developer. This is my personal blog.'
