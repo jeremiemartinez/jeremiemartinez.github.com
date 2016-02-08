@@ -1,8 +1,9 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown:         kramdown
+highlighter:      rouge
 gems:
   - jekyll-feed
+  - jekyll-paginate
 
 # Permalinks
 permalink:        pretty
@@ -21,6 +22,7 @@ author:
 
 paginate:         5
 future:           true
+show_drafts:      true
 
 # Custom vars
 version:          2.1.0

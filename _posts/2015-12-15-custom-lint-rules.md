@@ -167,7 +167,7 @@ As you may think, the code required is quite easy and understandable. You only n
 
 The result in your Lint report will look like this :
 
-<center>![App screenshot]({{ site.baseurl }}public/images/attr_rules_result.png)</center>
+![App screenshot]({{ site.baseurl }}public/images/attr_rules_result.png)
 
 ### Second rule: Log in production is forbidden
 
@@ -221,8 +221,7 @@ It might not be clear but several issues can be reported in a same `Detector`. I
 
 The result in your Lint report for this second rule will look like this :
 
-<center>![App screenshot]({{ site.baseurl }}public/images/log_rules_result.png)</center>
-
+![App screenshot]({{ site.baseurl }}public/images/log_rules_result.png)
 
 ### Registry
 

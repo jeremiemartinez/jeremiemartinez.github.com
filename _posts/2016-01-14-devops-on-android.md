@@ -69,11 +69,11 @@ Let's see how we can code our own custom Play Store publisher. It's a two step p
 
 First of all, if it is not already done, you must create a new project in the Google [console](https://console.developers.google.com/apis). Then, we need to enable `Google Play Android Developer API`.
 
-<center>![Enable API in console]({{ site.baseurl }}public/images/publisher_api_console.png)</center>
+![Enable API in console]({{ site.baseurl }}public/images/publisher_api_console.png)
 
 Once it is done, we must create a credential of type `Service account key`:
 
-<center>![Create service account key]({{ site.baseurl }}public/images/publisher_credential_console.png)</center>
+![Create service account key]({{ site.baseurl }}public/images/publisher_credential_console.png)
 
 Finally, fill up the tiny form and download your credential as a JSON file. You need to save three values : `private_key_id`, `private_key` and `client_email`. Save the value `private_key` in its own file `secret.pem`.
 
@@ -81,7 +81,7 @@ We are done with developers console… Now let's go to the second console! \o/
 
 Connect to your Play Store [console](https://play.google.com/apps/publish). You must go to `Settings` > `API access`:
 
-<center>![Enable API access]({{ site.baseurl }}public/images/publisher_playstore_console.png)</center>
+![Enable API access]({{ site.baseurl }}public/images/publisher_playstore_console.png)
 
 Then, you must simply link your project. Finally in `Service accounts`, grant rights to the email you had under `client_email` in the JSON file.
 

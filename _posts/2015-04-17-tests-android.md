@@ -60,7 +60,7 @@ One may wonder why MVP architecture is a real asset in writing Android tests. We
 
 To better illustrate this architecture, nothing better than code : Installed Apps. The application is available on [Github](https://github.com/jeremiemartinez/installed_apps). The purpose of this Android application is very simple since it only displays a list of applications installed on your Android device. It also contains a field for filtering by name.
 
-<center>![App screenshot]({{ site.baseurl }}public/images/testing_screenshot_app.png)</center>
+![App screenshot]({{ site.baseurl }}public/images/testing_screenshot_app.png)
 
 The project contains only 4 classes:
 
@@ -175,27 +175,20 @@ Finally, you will also find, in this project, a package internal with three very
 - `ActivityRule`: This is a Rule JUnit 4 and was developed by [Jake Wharton](https://twitter.com/JakeWharton). It simply allows you to launch an `Activity` each time our tests start in a easier and cleaner way.
 - `SpoonRule`: This is also a Rule JUnit 4. Its purpose is to enable Spoon to take screenshots in our tests.
 
-
-
 ## And in the IDE, it works too?
-
 
 Well yes! Finally ! With the release of Gradle plugin and Android Studio 1.1.0, tests are now supported directly in the IDE. While this feature is still in "experimental" mode, it is completely usable and works very well. The screenshots below can prove it:
 
-<center>![App screenshot]({{ site.baseurl }}public/images/testing_mode_screenshot.png)</center>
+![App screenshot]({{ site.baseurl }}public/images/testing_mode_screenshot.png)
 
 As we can see, simply select the "Artifact Test": **Unit Tests** or **Android Instrumentation Tests**. This choice allows to compile and executable the right type of test. Note that both are not available simultaneously for now.
 
-
 ## To go further …
-
 
 There are many tools to help you improve your tests in Android. Indeed, in order to monitor and have metrics on your test coverage, it is interesting to set up a tool like [Jacoco](http://eclemma.org/jacoco/) for instance. If you want your user experience tests to be writter by your QA or non-technical people, a tool like [Cucumber](https://cucumber.io/) becomes interesting. Finally, a library as [Gwen](https://github.com/shazam/gwen), implemented by Shazam will allow you to give coherence and a clarity to your tests.
 
 These are just some examples of available libraries in order to continuously improve your tests. So why not think about it, evaluate them and put them in place if this seems relevant?
 
-
 ## Conclusion
-
 
 We saw that it is now possible to easily set up testing by adopting a modular architecture. These tests can permit you to reach honorable coverage on Android and with all the comforts of an IDE. So there is no more reasons or excuses to not implement tests in your applications.
