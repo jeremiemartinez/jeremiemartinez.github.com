@@ -6,7 +6,6 @@ gems:
 
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
 
 # Setup
 name:             Jeremie Martinez Blog
