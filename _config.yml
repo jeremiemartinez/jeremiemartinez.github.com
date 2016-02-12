@@ -20,6 +20,7 @@ author:
   url:            'https://twitter.com/JeremMartinez'
 
 paginate:         5
+future:           true
 
 # Custom vars
 version:          2.1.0
