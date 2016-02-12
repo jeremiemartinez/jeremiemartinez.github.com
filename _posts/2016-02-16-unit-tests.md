@@ -43,7 +43,7 @@ public final class PermissionsTest {
 
 This test is based on Robolectric for parsing an Android manifest. When Gradle builds an APK, one of the its step is to assemble all the manifests from the libraries you are using and merge them together. Then, this manifest is packaged into the binary. This test will look at the merged Android manifest, extract the permissions and verify that they match the expected permissions.
 
-One drawback is that when you want to add a new permission for real, you also have to update the unit test. I agree that this is not ideal however sometimes you have to trade off to be safe. This is especially mandatory when your goal is continuous delivery (see my last [article](http://jeremie-martinez.com/2016/01/14/devops-on-android/)) and you want to be sure your permissions will not changed.
+One drawback is that when you want to add a new permission for real, you also have to update the unit test. I agree that this is not ideal however sometimes you have to trade off to be safe. This is especially mandatory when your goal is continuous delivery (see my last [article](http://jeremie-martinez.com/2016/01/14/devops-on-android/)) and you want to be sure your permissions will not change.
 
 ## Validate your SharedPreferences
 
@@ -216,8 +216,8 @@ These strings represent our database schema. Finally, we compare the two schemas
 
 This is just an example but this schema can be extended since the API offers much more items available. You can see what is possible from the following documentation: [Metadata](https://docs.oracle.com/javase/7/docs/api/java/sql/DatabaseMetaData.html). For instance, you could also compare references or indexes. Once again, apply what suits best to your app.
 
-Database migration is very important and unfortunately it is often a source of bugs. This unit test will help you making sure your migration work and you can therefore upgrade safely.
+Database migration is very important and unfortunately it is often a source of bugs. This unit test will help you making sure your migration works and you can therefore upgrade safely.
 
 ## Conclusion
 
-These unit tests are just examples, however I hope this article showed you that a lot can be achieve thanks to unit tests. To reach continuous delivery, knowing you are safe about database migration, permissions or SharedPreferences is a huge advantage.
+These unit tests are just examples, however I hope this article showed you that a lot can be achieved with them. To reach continuous delivery, knowing you are safe about database migration, permissions or SharedPreferences is a huge advantage.
