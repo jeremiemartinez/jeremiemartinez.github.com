@@ -9,6 +9,13 @@ On the road of continuous delivery, an essential stop is unit testing. They shou
 
 <!-- more -->
 
+First, you must know that these unit tests will be based on [Robolectric](https://github.com/robolectric/robolectric) and [Truth](https://github.com/google/truth) (see my last article for more details):
+
+{% highlight groovy %}
+testCompile "org.robolectric:robolectric:3.0"
+testCompile "com.google.truth:truth:0.27"
+{% endhighlight %}
+
 ## Control your permissions
 
 Managing permissions is often a key in the success of an application. We all know examples about application having a bad buzz because of abuses. On Android, users are very careful about it when installing a new application. Indeed, if they feel like you don't really need the permissions you are requesting, your conversion rate (visit on PlayStore / applications installed) can drop terribly.
@@ -47,10 +54,13 @@ One drawback is that when you want to add a new permission for real, you also ha
 
 ## Validate your SharedPreferences
 
-Most applications use `SharedPreferences` to store data. They are a core part and therefore must be heavily tested. To illustrate this example, I designed a small `SharedPreferences` wrapper, I am pretty sure you all have something similar in your app.
+Most applications use `SharedPreferences` to store data. They are a core part of any application and therefore must be heavily tested. To illustrate this example, I designed a small `SharedPreferences` wrapper, I am pretty sure you all have something similar in your app.
 
 {% highlight java %}
 public class Preferences {
+
+  private static final String NOTIFICATION = "NOTIFICATION";
+  private static final String USERNAME = "USERNAME";
 
   private final Context context;
 
@@ -59,27 +69,27 @@ public class Preferences {
   }
 
   public String getUsername() {
-    return getPreferences().getString("USERNAME", null);
+    return getPreferences().getString(USERNAME, null);
   }
 
   public void setUsername(String username) {
     getPreferences().edit().
-                     putString("USERNAME", username).
+                     putString(USERNAME, username).
                      commit();
   }
 
   public boolean hasNotificationEnabled() {
-    return getPreferences().getBoolean("NOTIFICATION"), false);
+    return getPreferences().getBoolean(NOTIFICATION, false);
   }
 
   public void setNotificationEnabled(boolean enable) {
     return getPreferences().edit().
-                            putBoolean("NOTIFICATION", enable).
+                            putBoolean(NOTIFICATION, enable).
                             commit();
   }
 
   private SharedPreferences getPreferences() {
-    return context.getSharedPreferences(USER_PREFERENCES, MODE_PRIVATE);
+    return context.getSharedPreferences("user_prefs", MODE_PRIVATE);
   }
 }
 {% endhighlight %}
@@ -125,6 +135,15 @@ Obviously, this is a simple example. However sometimes you can have more complex
 Maintaining your SQLite database can be difficult. Indeed, your database will evolve with your application and making sure these migrations go well is mandatory. If you fail to do so, it will lead to crashes and losing users… Unacceptable !
 
 This unit test is based on the work of an old colleague of mine [Thibaut](https://twitter.com/fredszaq). The idea is to compare the schema of a created from scratch database and an upgraded one.
+
+First, we need to add a dependency to the SQLite JDBC driver:
+
+{% highlight groovy %}
+testCompile 'org.xerial:sqlite-jdbc:3.8.10.1'
+testCompile 'commons-io:commons-io:1.3.2'
+{% endhighlight %}
+
+As you can see, I also use commons-io to easily manipulate files. Then, our unit test will look like this:
 
 {% highlight java %}
 @RunWith(RobolectricTestRunner.class)
