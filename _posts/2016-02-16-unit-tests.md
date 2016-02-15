@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "3 unit tests to avoid bad surprises"
+title: "3 unit tests to avoid bad surprises on Android"
 comments: true
 visible: 1
 ---
@@ -134,9 +134,9 @@ Obviously, this is a simple example. However sometimes you can have more complex
 
 Maintaining your SQLite database can be difficult. Indeed, your database will evolve with your application and making sure these migrations go well is mandatory. If you fail to do so, it will lead to crashes and losing users… Unacceptable !
 
-This unit test is based on the work of an old colleague of mine [Thibaut](https://twitter.com/fredszaq). The idea is to compare the schema of a created from scratch database and an upgraded one.
+This unit test is based on the work of an old colleague of mine [Thibaut](https://twitter.com/fredszaq). The idea is to compare the schema of a created from scratch database and an upgraded one. For the new database, we just run the `onCreate` method from the `SQLiteOpenHelper`. For the upgraded one, we take the first version of our database (like it was in version 1) and we run the `onUpgrade` method. By comparing them, we make sure that our upgrade scripts work and are equivalent to a brand new database.
 
-First, we need to add a dependency to the SQLite JDBC driver:
+Let's code. First, we need to add a dependency to the SQLite JDBC driver:
 
 {% highlight groovy %}
 testCompile 'org.xerial:sqlite-jdbc:3.8.10.1'
