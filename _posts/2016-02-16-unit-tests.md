@@ -2,7 +2,6 @@
 layout: post
 title: "3 unit tests to avoid bad surprises on Android"
 comments: true
-visible: 1
 ---
 
 On the road of continuous delivery, an essential stop is unit testing. They should be short, quick and reliable. Sometimes they are our only way to see an error and avoid to deliver a bug in production. This article presents 3 unit tests whose goal is to avoid bad surprises by focusing on key aspects of an Android application: Permissions, shared preferences and SQLite database. Check them out and avoid bad surprises on release day !
@@ -134,7 +133,7 @@ Obviously, this is a simple example. However sometimes you can have more complex
 
 Maintaining your SQLite database can be difficult. Indeed, your database will evolve with your application and making sure these migrations go well is mandatory. If you fail to do so, it will lead to crashes and losing users… Unacceptable !
 
-This unit test is based on the work of an old colleague of mine [Thibaut](https://twitter.com/fredszaq). The idea is to compare the schema of a created from scratch database and an upgraded one. For the new database, we just run the `onCreate` method from the `SQLiteOpenHelper`. For the upgraded one, we take the first version of our database (like it was in version 1) and we run the `onUpgrade` method. By comparing them, we make sure that our upgrade scripts work and are equivalent to a brand new database.
+This unit test is based on the work of an old colleague of mine [Thibaut](https://twitter.com/fredszaq). The idea is to compare the schema of a created from scratch database and an upgraded one. For the new database, we just run the `onCreate` method from the `SQLiteOpenHelper`. For the upgraded one, we take the first version of our database (like it was in version 1) and we run the `onUpgrade` method. By comparing them, we make sure that our upgrade scripts work and give the same result that a brand new database.
 
 Let's code. First, we need to add a dependency to the SQLite JDBC driver:
 
