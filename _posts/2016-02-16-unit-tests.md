@@ -8,7 +8,7 @@ On the road of continuous delivery, an essential stop is unit testing. They shou
 
 <!-- more -->
 
-First, you must know that these unit tests will be based on [Robolectric](https://github.com/robolectric/robolectric) and [Truth](https://github.com/google/truth) (see my last article for more details):
+First, you must know that these unit tests will be based on [Robolectric](https://github.com/robolectric/robolectric) and [Truth](https://github.com/google/truth) (see my [last article](http://jeremie-martinez.com/2015/11/05/truth-android/) for more details):
 
 {% highlight groovy %}
 testCompile "org.robolectric:robolectric:3.0"
@@ -58,38 +58,38 @@ Most applications use `SharedPreferences` to store data. They are a core part of
 {% highlight java %}
 public class Preferences {
 
-  private static final String NOTIFICATION = "NOTIFICATION";
-  private static final String USERNAME = "USERNAME";
+    private static final String NOTIFICATION = "NOTIFICATION";
+    private static final String USERNAME = "USERNAME";
 
-  private final Context context;
+    private final Context context;
 
-  public Preferences(Context context) {
-    this.context = context;
-  }
+    public Preferences(Context context) {
+        this.context = context;
+    }
 
-  public String getUsername() {
-    return getPreferences().getString(USERNAME, null);
-  }
+    public String getUsername() {
+        return getPreferences().getString(USERNAME, null);
+    }
 
-  public void setUsername(String username) {
-    getPreferences().edit().
-                     putString(USERNAME, username).
-                     commit();
-  }
+    public void setUsername(String username) {
+        getPreferences().edit().
+                       putString(USERNAME, username).
+                       commit();
+    }
 
-  public boolean hasNotificationEnabled() {
-    return getPreferences().getBoolean(NOTIFICATION, false);
-  }
+    public boolean hasNotificationEnabled() {
+        return getPreferences().getBoolean(NOTIFICATION, false);
+    }
 
-  public void setNotificationEnabled(boolean enable) {
-    return getPreferences().edit().
-                            putBoolean(NOTIFICATION, enable).
-                            commit();
-  }
+    public void setNotificationEnabled(boolean enable) {
+        return getPreferences().edit().
+                                putBoolean(NOTIFICATION, enable).
+                                commit();
+    }
 
-  private SharedPreferences getPreferences() {
-    return context.getSharedPreferences("user_prefs", MODE_PRIVATE);
-  }
+    private SharedPreferences getPreferences() {
+        return context.getSharedPreferences("user_prefs", MODE_PRIVATE);
+    }
 }
 {% endhighlight %}
 
@@ -100,30 +100,30 @@ Thanks to Robolectric, it is pretty easy to test them:
 @Config(manifest = Config.NONE)
 public final class PreferencesTest {
 
-  private Preferences preferences;
+    private Preferences preferences;
 
-  @Before
-  public void setUp() {
-    preferences = new Preferences(RuntimeEnvironment.application);
-  }
+    @Before
+    public void setUp() {
+        preferences = new Preferences(RuntimeEnvironment.application);
+    }
 
-  @Test
-  public void should_set_username() {
-    preferences.setUsername("jmartinez");
-    assertThat(preferences.getUsername()).isEqualTo("jmartinez");
-  }
+    @Test
+    public void should_set_username() {
+        preferences.setUsername("jmartinez");
+        assertThat(preferences.getUsername()).isEqualTo("jmartinez");
+    }
 
-  @Test
-  public void should_set_notification() {
-    preferences.setNotificationEnabled(true);
-    assertThat(preferences.hasNotificationEnabled()).isTrue();
-  }
+    @Test
+    public void should_set_notification() {
+        preferences.setNotificationEnabled(true);
+        assertThat(preferences.hasNotificationEnabled()).isTrue();
+    }
 
-  @Test
-  public void should_match_defaults() {
-    assertThat(preferences.getUsername()).isNull();
-    assertThat(preferences.hasNotificationEnabled()).isFalse();
-  }
+    @Test
+    public void should_match_defaults() {
+        assertThat(preferences.getUsername()).isNull();
+        assertThat(preferences.hasNotificationEnabled()).isFalse();
+    }
 }
 {% endhighlight %}
 
@@ -149,76 +149,76 @@ As you can see, I also use commons-io to easily manipulate files. Then, our unit
 @Config(manifest = Config.NONE)
 public final class MigrationTest {
 
-  private File newFile;
-  private File upgradedFile;
+    private File newFile;
+    private File upgradedFile;
 
-  @Before
-  public void setup() throws IOException {
-    File baseDir = new File("build/tmp/migration");
-    newFile = new File(baseDir, "new.db");
-    upgradedFile = new File(baseDir, "upgraded.db");
-    File firstDbFile = new File("src/test/resources/origin.db");
-    FileUtils.copyFile(firstDbFile, upgradedFile);
-  }
+    @Before
+    public void setup() throws IOException {
+        File baseDir = new File("build/tmp/migration");
+        newFile = new File(baseDir, "new.db");
+        upgradedFile = new File(baseDir, "upgraded.db");
+        File firstDbFile = new File("src/test/resources/origin.db");
+        FileUtils.copyFile(firstDbFile, upgradedFile);
+    }
 
-  @Test
-  public void upgradeShouldBeTheSameAsCreate() throws Exception {
-    Context context = RuntimeEnvironment.application;
-    DatabaseOpenHelper helper = new DatabaseOpenHelper(context);
+    @Test
+    public void upgrade_should_be_the_same_as_create() throws Exception {
+        Context context = RuntimeEnvironment.application;
+        DatabaseOpenHelper helper = new DatabaseOpenHelper(context);
 
-    SQLiteDatabase newDb = SQLiteDatabase.openOrCreateDatabase(newFile, null);
-    SQLiteDatabase upgradedDb = SQLiteDatabase.openDatabase(
+        SQLiteDatabase newDb = SQLiteDatabase.openOrCreateDatabase(newFile, null);
+        SQLiteDatabase upgradedDb = SQLiteDatabase.openDatabase(
             upgradedFile.getAbsolutePath(),
             null,
             SQLiteDatabase.OPEN_READWRITE
-    );
+        );
 
-    helper.onCreate(newDb);
-    helper.onUpgrade(upgradedDb, 1, DatabaseOpenHelper.DATABASE_VERSION);
+        helper.onCreate(newDb);
+        helper.onUpgrade(upgradedDb, 1, DatabaseOpenHelper.DATABASE_VERSION);
 
-    Set<String> newSchema = extractSchema(newDbFile.getAbsolutePath());
-    Set<String> upgradedSchema = extractSchema(upgradedDbFile.getAbsolutePath());
+        Set<String> newSchema = extractSchema(newDbFile.getAbsolutePath());
+        Set<String> upgradedSchema = extractSchema(upgradedDbFile.getAbsolutePath());
 
-    assertThat(upgradedSchema).isEqualTo(newSchema);
-  }
+        assertThat(upgradedSchema).isEqualTo(newSchema);
+    }
 
-  private Set<String> extractSchema(String url) throws Exception {
-    Connection conn = null;
+    private Set<String> extractSchema(String url) throws Exception {
+        Connection conn = null;
 
-    final Set<String> schema = new TreeSet<>();
-    ResultSet tables = null;
-    ResultSet columns = null
+        final Set<String> schema = new TreeSet<>();
+        ResultSet tables = null;
+        ResultSet columns = null
 
-    try {
-      conn = DriverManager.getConnection("jdbc:sqlite:" + url);
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlite:" + url);
 
-      tables = conn.getMetaData().getTables(null, null, null, null);
-      while (tables.next()) {
+            tables = conn.getMetaData().getTables(null, null, null, null);
+            while (tables.next()) {
 
-        String tableName = tables.getString("TABLE_NAME");
-        String tableType = tables.getString("TABLE_TYPE");
-        schema.add(tableType + " " + tableName);
+            String tableName = tables.getString("TABLE_NAME");
+            String tableType = tables.getString("TABLE_TYPE");
+            schema.add(tableType + " " + tableName);
 
-        columns = conn.getMetaData().getColumns(null, null, tableName, null);
-              while (columns.next()) {
+            columns = conn.getMetaData().getColumns(null, null, tableName, null);
+                while (columns.next()) {
 
-                String columnName = columns.getString("COLUMN_NAME");
-                String columnType = columns.getString("TYPE_NAME");
-                String columnNullable = columns.getString("IS_NULLABLE");
-                String columnDefault = columns.getString("COLUMN_DEF");
-                schema.add("TABLE " + tableName +
+                  String columnName = columns.getString("COLUMN_NAME");
+                  String columnType = columns.getString("TYPE_NAME");
+                  String columnNullable = columns.getString("IS_NULLABLE");
+                  String columnDefault = columns.getString("COLUMN_DEF");
+                  schema.add("TABLE " + tableName +
                         " COLUMN " + columnName + " " + columnType +
                         " NULLABLE=" + columnNullable +
                         " DEFAULT=" + columnDefault);
+                }
             }
-        }
 
-        return schema;
-      } finally {
-          closeQuietly(tables);
-          closeQuietly(columns);
-          closeQuietly(conn);
-      }
+            return schema;
+        } finally {
+            closeQuietly(tables);
+            closeQuietly(columns);
+            closeQuietly(conn);
+        }
     }
 }
 {% endhighlight %}
