@@ -47,9 +47,9 @@ public final class PermissionsTest {
 }
 {% endhighlight %}
 
-This test is based on Robolectric for parsing an Android manifest. When Gradle builds an APK, one of the its step is to assemble all the manifests from the libraries you are using and merge them together. Then, this manifest is packaged into the binary. This test will look at the merged Android manifest, extract the permissions and verify that they match the expected permissions.
+This test is based on Robolectric for parsing an Android manifest. When Gradle builds an APK, one of the its step is to assemble all the manifests from the libraries you are using and merge them together. Then, this manifest is packaged into the binary. This test will look at the merged Android manifest, extract the permissions and verify that they match the expected permissions. Using an intermediate state of the build is not ideal but this is the only solution I found so far.
 
-One drawback is that when you want to add a new permission for real, you also have to update the unit test. I agree that this is not ideal however sometimes you have to trade off to be safe. This is especially mandatory when your goal is continuous delivery (see my last [article](http://jeremie-martinez.com/2016/01/14/devops-on-android/)) and you want to be sure your permissions will not change.
+Another drawback is that when you want to add a new permission for real, you also have to update the unit test. I agree that this is not ideal however sometimes you have to trade off to be safe. This is especially mandatory when your goal is continuous delivery (see my last [article](http://jeremie-martinez.com/2016/01/14/devops-on-android/)) and you want to be sure your permissions will not change.
 
 ## Validate your SharedPreferences
 
