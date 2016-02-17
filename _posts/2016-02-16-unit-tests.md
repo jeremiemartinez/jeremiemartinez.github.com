@@ -74,7 +74,7 @@ public class Preferences {
     public void setUsername(String username) {
         getPreferences().edit().
                        putString(USERNAME, username).
-                       commit();
+                       apply();
     }
 
     public boolean hasNotificationEnabled() {
@@ -82,9 +82,9 @@ public class Preferences {
     }
 
     public void setNotificationEnabled(boolean enable) {
-        return getPreferences().edit().
-                                putBoolean(NOTIFICATION, enable).
-                                commit();
+        getPreferences().edit().
+                        putBoolean(NOTIFICATION, enable).
+                        apply();
     }
 
     private SharedPreferences getPreferences() {
