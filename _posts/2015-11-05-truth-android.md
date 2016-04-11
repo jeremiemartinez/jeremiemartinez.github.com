@@ -316,10 +316,9 @@ Strategies are the other feature that made me try Truth and adopt it. Let's see 
 
 First, Truth differentiates 3 failure strategies :
 
- 1. The first one we all know is **assert**. It exists since testing exists. Principle is simple, if we assert something wrong in our test, we stop and fail. That's what we have been using for all our tests.
+ - The first one we all know is **assert**. It exists since testing exists. Principle is simple, if we assert something wrong in our test, we stop and fail. That's what we have been using for all our tests.
 
- 2. The second one is **assume**. It means that when we assume something in our tests, if it fails our tests is just ignored. It could look useless but it's very useful on Android especially when dealing with fragmentation. Imagine you want to test a feature of your app that is only available on Lollipop. Then, when you run your instrumentation tests, you want to not run this test on device pre-lollipop. Thanks to **assume**, the test will be ignored since it is not applicable. Here is an example :
-
+ - The second one is **assume**. It means that when we assume something in our tests, if it fails our tests is just ignored. It could look useless but it's very useful on Android especially when dealing with fragmentation. Imagine you want to test a feature of your app that is only available on Lollipop. Then, when you run your instrumentation tests, you want to not run this test on device pre-lollipop. Thanks to **assume**, the test will be ignored since it is not applicable. Here is an example :
 {% highlight java %}
    @Test
    public void should_test_super_new_feature() {
@@ -330,11 +329,9 @@ First, Truth differentiates 3 failure strategies :
                ...
    }
 {% endhighlight %}
-
  **Assume** can be used for various use cases such as : my local database is not configured but I still want to execute my unit tests or I want to run some tests specific to Windows or Linux (file system) for instance.
 
- <ol start=3>
- 3. The last strategy available is **expect**. It means you go through all your assertions even if some fail and you generate a small report at the end. Best use case to my opinion is when you need to assert that a object is correctly filled. You don't want to fix your test, launch again, fix again, launch again. You want all what is wrong in one time. For instance, I always write a test for testing my `Parcelable` implementation. With Truth, it does work perfectly :
+ - The last strategy available is **expect**. It means you go through all your assertions even if some fail and you generate a small report at the end. Best use case to my opinion is when you need to assert that a object is correctly filled. You don't want to fix your test, launch again, fix again, launch again. You want all what is wrong in one time. For instance, I always write a test for testing my `Parcelable` implementation. With Truth, it does work perfectly :
 
  {% highlight java %}
  @RunWith(RobolectricTestRunner.class)
