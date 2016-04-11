@@ -38,9 +38,19 @@ Let's get started with its main principles now.
 
 Every GoCD setup need one server to control agents. Basically, an agent can be considered as a worker. When there is work to do, server distributes it to agents. As you may have guessed, you need at least one agent and one server.
 
+## First installation
+
+Now let's see how we can use GoCD with Android.
+
+First, I installed a [Go Server](https://docs.go.cd/current/installation/installing_go_server.html) and a [Go Agent](https://docs.go.cd/current/installation/installing_go_agent.html). It is pretty straight forward. Every following configuration has to be made on the Go Server since the agent only executes what the server gives it.
+
+To be able to play with Android build system, I had to install an Android SDK on the computer where run the agent. In my case, I was running everything (server and agent) on my personal computer. Since Android uses Gradle, I also had to install a [Gradle plugin](https://github.com/jmnarloch/gocd-gradle-plugin). All plugins supported and maintained are available on GoCD [website](https://www.go.cd/community/plugins.html).
+
+Finally, you also need to declare your `ANDROID_HOME` as environment variable that points to your Android SDK installation. I won't cover it in this article, however GoCD provides a way to configure environments and its variables easily. You can find more information about this in their [documentation](https://docs.go.cd/current/navigation/environments_page.html).
+
 ## Value Stream Map
 
-They are several definition around GoCD.
+They are several definition around GoCD that must be understood before playing with it. These concepts must be mastered because they are the base of building a great pipeline.
 
 - **Material**: It starts a `Pipeline`. Most of the time, it will be your Git repository.
 
@@ -55,18 +65,6 @@ They are several definition around GoCD.
 The Value Stream Map is just the representation of a `Pipeline`. Splitting this `Pipeline` into small pieces makes it very powerful: quick feedback, speedup and parallelization.
 
 ![slide screenshot]({{ site.baseurl }}public/images/example_vsm.png)
-
-## First installation
-
-Now let's see how we can use GoCD with Android.
-
-First, I installed a [Go Server](https://docs.go.cd/current/installation/installing_go_server.html) and a [Go Agent](https://docs.go.cd/current/installation/installing_go_agent.html). It is pretty straight forward. Every following configuration has to be made on the Go Server since the agent only executes what the server gives it.
-
-To be able to play with Android build system, I had to install an Android SDK on the computer where run the agent. In my case, I was running everything (server and agent) on my personal computer. Since Android uses Gradle, I also had to install a [Gradle plugin](https://github.com/jmnarloch/gocd-gradle-plugin). All plugins supported and maintained are available on GoCD [website](https://www.go.cd/community/plugins.html).
-
-Finally, you also need to declare your `ANDROID_HOME` as environment variable that points to your Android SDK installation. I won't cover it in this article, however GoCD provides a way to configure environments and its variables easily. You can find more information about this in their [documentation](https://docs.go.cd/current/navigation/environments_page.html).
-
-Now, we can start building our pipeline.
 
 ## An Android pipeline
 
@@ -129,10 +127,10 @@ This forth and final pipeline aims at delivering to the Play Store our release A
 
 ## Conclusion
 
-With these pipelines, first we stick to my introduction slide which was my goal. We also have very detailed steps that will allow us easy maintenance and debug. Indeed, new tasks can be added, tried and improved without modifying the whole system.
+With these pipelines, first we stick to my introduction slide which was my goal. We also have very detailed steps that will allow us easy maintenance and debug. Indeed, new tasks can be added, tried and improved without modifying the whole system. Granularity is everything.
 
 This article is just me experimenting with what I consider to be an alternative to my old Jenkins.
 
-Obviously, we have to be pragmatic and moving out of Jenkins right away would probably be a mistake. However, you should at least try and see if it can help you delivery faster and better apps.
+Obviously, we have to be pragmatic and moving out of Jenkins right away would probably be a mistake. Indeed, you must verify that everything you achieve with Jenkins can be reproduced with GoCD. However, you should at least try and see if it can help you delivery faster and better apps.
 
 On my side, I am still playing with GoCD and trying to convince my team is a work-in-progress.
