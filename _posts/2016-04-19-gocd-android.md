@@ -4,11 +4,11 @@ title: Use GoCD for Android and get rid of Jenkins
 comments: true
 ---
 
-As a Android developer, who does not know Jenkins?
+As an Android developer, who does not know Jenkins?
 
 Jenkins is the #1 integration server by far. I have been personally using it for 4 years now, i.e. since I started Android development professionally. But sometimes you have to kill your old habits and try something new!
 
-This article is about GoCD, another continuous integration server, with a different and interesting approach. This is not a wizard but rather a description and feedback about my experiments with its key features with Android environment.
+This article is about [Go CD](https://www.go.cd/), another continuous integration server, with a different and interesting approach. This is not a wizard but rather a description and feedback about my experiments with its key features on Android.
 
 <!-- more -->
 
@@ -20,11 +20,11 @@ Last month, I gave a talk about continuous delivery on Android and this is my co
 
 I thought a lot about this because I realized that my integration server was not reflecting at all this slide and that it would be interesting to have a more pipeline approach.
 
-## Why GoCD ?
+## Why Go CD ?
 
 Most of the projects I have been working on (and at Captain Train also) needed to be self-hosted. I know there are a lot of great tools like [Travis CI](https://travis-ci.org), [Circle CI](https://circleci.com) or [Codeship](https://codeship.com) for instance but there are all PaaS solution.
 
-GoCD was providing the pipeline approach I was looking for:
+Go CD was providing the pipeline approach I was looking for:
 
 1. **Small steps over monolythic script**. Indeed, like you are breaking your code into small methods, you should break your pipeline into small steps. Small steps makes it easier to debug and maintain.
 2. **Automation over human process**. It permits to avoid human errors. Automate as much as possible, even the smallest task.
@@ -34,21 +34,21 @@ Let's get started with its main principles now.
 
 ## One server to control them all
 
-Every GoCD setup need one server to control several agents. Basically, an agent can be considered as a worker. When there is work to do, server distributes it to its agents. As you may have guessed, you will need at least one agent and one server to get started.
+Every Go CD setup need one server to control several agents. Basically, an agent can be considered as a worker. When there is work to do, server distributes it to its agents. As you may have guessed, you will need at least one agent and one server to get started.
 
 ## First installation
 
-Now let's see how we can use GoCD with Android.
+Now let's see how we can use Go CD with Android.
 
 First, I installed a [Go Server](https://docs.go.cd/current/installation/installing_go_server.html) and a [Go Agent](https://docs.go.cd/current/installation/installing_go_agent.html). It is pretty straight forward. Every following configuration has to be made on the Go Server since the agent only executes what the server gives it.
 
-To be able to play with Android build system, I had to install an Android SDK for the agent. Since Android uses Gradle, I also had to install a [Gradle plugin](https://github.com/jmnarloch/gocd-gradle-plugin). All plugins supported and maintained are available on GoCD [website](https://www.go.cd/community/plugins.html).
+To be able to play with Android build system, I had to install an Android SDK for the agent. Since Android uses Gradle, I also had to install a [Gradle plugin](https://github.com/jmnarloch/gocd-gradle-plugin). All plugins supported and maintained are available on Go CD [website](https://www.go.cd/community/plugins.html).
 
-Finally, you also need to declare your `ANDROID_HOME` as environment variable that points to your Android SDK. I won't cover it in this article, but GoCD provides a way to configure environments and its variables easily. You can find more information about this in their [documentation](https://docs.go.cd/current/navigation/environments_page.html).
+Finally, you also need to declare your `ANDROID_HOME` as environment variable that points to your Android SDK. I won't cover it in this article, but Go CD provides a way to configure environments and its variables easily. You can find more information about this in their [documentation](https://docs.go.cd/current/navigation/environments_page.html).
 
 ## Value Stream Map
 
-They are several definition around GoCD that must be understood before playing with it. These concepts must be mastered because they are the base of building a great pipeline.
+They are several definition around Go CD that must be understood before playing with it. These concepts must be mastered because they are the base of building a great pipeline.
 
 - **Material**: It starts a `Pipeline`. Most of the time, it will be your Git repository, but it could also be the availability of an artifact or even another `Pipeline`.
 
@@ -129,6 +129,6 @@ With these pipelines, first we stick to my introduction slide which was my goal.
 
 This article is just me experimenting with what I consider to be an alternative to my old Jenkins.
 
-Obviously, we have to be pragmatic and moving out of Jenkins right away would probably be a mistake. Indeed, you must verify that everything you achieve with Jenkins can be reproduced with GoCD. However, you should at least try and see if it can help you delivery faster and better apps.
+Obviously, we have to be pragmatic and moving out of Jenkins right away would probably be a mistake. Indeed, you must verify that everything you achieve with Jenkins can be reproduced with Go CD. However, you should at least try and see if it can help you delivery faster and better apps.
 
-On my side, I am still playing with GoCD and trying to convince my team is a work-in-progress.
+On my side, I am still playing with Go CD and trying to convince my team is a work-in-progress.
