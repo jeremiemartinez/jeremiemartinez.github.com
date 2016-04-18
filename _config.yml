@@ -3,6 +3,7 @@ markdown:         kramdown
 highlighter:      rouge
 gems:
   - jekyll-paginate
+  - jekyll-feed
 
 # Permalinks
 permalink:        pretty
