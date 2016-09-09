@@ -13,4 +13,4 @@ Finally, the video has been released on [Youtube](https://www.youtube.com/watch?
 
 I wanted to thank anyone that attended my talk, it was really a great experience for me to speak at such an important conference. Moreover, it gave me a lot to think about and explore for the following weeks…
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IkTST564lA4" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IkTST564lA4" frameborder="0" allowfullscreen></iframe>{: .center-image }

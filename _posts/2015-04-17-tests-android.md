@@ -60,7 +60,7 @@ One may wonder why MVP architecture is a real asset in writing Android tests. We
 
 To better illustrate this architecture, nothing better than code : Installed Apps. The application is available on [Github](https://github.com/jeremiemartinez/installed_apps). The purpose of this Android application is very simple since it only displays a list of applications installed on your Android device. It also contains a field for filtering by name.
 
-![App screenshot]({{ site.baseurl }}public/images/testing_screenshot_app.png)
+![App screenshot]({{ site.baseurl }}public/images/testing_screenshot_app.png){: .center-image }
 
 The project contains only 4 classes:
 
@@ -179,7 +179,7 @@ Finally, you will also find, in this project, a package internal with three very
 
 Well yes! Finally ! With the release of Gradle plugin and Android Studio 1.1.0, tests are now supported directly in the IDE. While this feature is still in "experimental" mode, it is completely usable and works very well. The screenshots below can prove it:
 
-![App screenshot]({{ site.baseurl }}public/images/testing_mode_screenshot.png)
+![App screenshot]({{ site.baseurl }}public/images/testing_mode_screenshot.png){: .center-image }
 
 As we can see, simply select the "Artifact Test": **Unit Tests** or **Android Instrumentation Tests**. This choice allows to compile and executable the right type of test. Note that both are not available simultaneously for now.
 

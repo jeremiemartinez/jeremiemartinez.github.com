@@ -16,7 +16,7 @@ This article is about [Go CD](https://www.go.cd/), another continuous integratio
 
 Last month, I gave a talk about continuous delivery on Android and this is my conclusion slide:
 
-![slide screenshot]({{ site.baseurl }}public/images/slide_continuous_delivery.png)
+![slide screenshot]({{ site.baseurl }}public/images/slide_continuous_delivery.png){: .center-image }
 
 I thought a lot about this because I realized that my integration server was not reflecting at all this slide and that it would be interesting to have a more pipeline approach.
 
@@ -62,7 +62,7 @@ They are several definition around Go CD that must be understood before playing 
 
 The Value Stream Map is just the representation of a `Pipeline`. Splitting this `Pipeline` into small pieces makes it very powerful: quick feedback, speedup and parallelization.
 
-![slide screenshot]({{ site.baseurl }}public/images/example_vsm.png)
+![slide screenshot]({{ site.baseurl }}public/images/example_vsm.png){: .center-image }
 
 ## An Android pipeline
 
