@@ -4,7 +4,7 @@ title: "How we design a beautiful animation"
 comments: true
 ---
 
-Last week, we rebranded Captain Train app into Trainline. It means we had to change our colors, icons, empty states and … animations to match our new brand. Bye bye green and hello navy and mint!
+Last week, we rebranded Captain Train app to Trainline. It means we had to change our colors, icons, empty states and … animations to match our new brand. Bye bye green and hello navy and mint!
 
 We had some questions about how we created our new loading animation. Therefore I thought that this blogpost could be useful to my fellow developers. Indeed, I will try to explain how we designed and implemented this animation.
 
@@ -16,13 +16,19 @@ We had some questions about how we created our new loading animation. Therefore 
 
 Before the rebranding, we had this animation when loading the search results:
 
-![Captain Train]({{ site.baseurl }}public/images/captaintrain.gif){: .center-image }
+<video width="540" autoplay>
+  <source src="{{ site.baseurl }}public/images/captaintrain.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>{: .center-image }
 
-It was very simple. We just had a `animation-list` drawable composed of 3 drawables with different position for the rails.
+It was very simple and done in less than 3 hours just before releasing the app. Indeed, We just had a `animation-list` drawable composed of 3 drawables with different position for the rails.
 
 For the app branded as Trainline, we wanted something better. Our designer created a beautiful illustration and our challenge was now to animate it. Let's start by the end, here is the result we achieved:
 
-![Trainline]({{ site.baseurl }}public/images/trainline.gif){: .center-image }
+<video width="540" autoplay>
+  <source src="{{ site.baseurl }}public/images/trainline.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>{: .center-image }
 
 Now let's see how I created it.
 
@@ -68,6 +74,10 @@ mLayerAnimator.setDuration(ANIMATION_DURATION);
 {% endhighlight %}
 
 As you can see, it is very easy. This example just animates the X but for some layers (train and birds), I also had to animate the Y.
+
+Another important detail is that to reduce memory footprint, each layer wraps its content. Therefore, Android will only draw the minimum part that changes.
+
+Finally, we don't support RTL at the moment, however if one day we do, it will be very easy to change the direction of the animation.
 
 ### Magic disappearance
 
