@@ -25,7 +25,7 @@ It was very simple and done in less than 3 hours just before releasing the app. 
 
 For the app branded as Trainline, we wanted something better. Our designer created a beautiful illustration and our challenge was now to animate it. Let's start by the end, here is the result we achieved:
 
-<video width="540" autoplay loop>
+<video width="540" autoplay loop muted>
   <source src="{{ site.baseurl }}public/images/trainline.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>{: .center-image }
