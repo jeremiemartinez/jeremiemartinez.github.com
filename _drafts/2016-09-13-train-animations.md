@@ -77,6 +77,13 @@ As you can see, it is very easy. This example just animates the X but for some l
 
 Another important detail is that to reduce memory footprint, each layer wraps its content. Therefore, Android will only draw the minimum part that changes.
 
+<video width="540" autoplay loop muted>
+  <source src="{{ site.baseurl }}public/images/animation_with_borders.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>{: .center-image }
+
+As you can see the only layer that does not move in the animation are the rails.
+
 Finally, we don't support RTL at the moment, however if one day we do, it will be very easy to change the direction of the animation.
 
 ### Magic disappearance
