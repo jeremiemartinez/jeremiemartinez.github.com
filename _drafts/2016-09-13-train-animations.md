@@ -88,7 +88,7 @@ Finally, we don't support RTL at the moment, however if one day we do, it will b
 
 ### Magic disappearance
 
-Since the animation repeats itself indefinitely, I had to find a way to make the layer smoothly fade out between two rounds. Here, I used a very small trick: two views with a semi-transparent gradient drawable in background. See this image below to illustrate:
+Since the animation repeats itself indefinitely, I had to find a way to make the layer smoothly fade out between two rounds. Indeed, once the bird reaches the left of the image, it has to start again from the right. Here, I used a very small trick: two views with a semi-transparent gradient drawable in background. See this image below to illustrate:
 
 ![Fade out]({{ site.baseurl }}public/images/fadeout.png){: .center-image }
 
