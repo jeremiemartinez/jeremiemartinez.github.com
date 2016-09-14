@@ -16,7 +16,7 @@ We had some questions about how we created our new loading animation. Therefore 
 
 Before the rebranding, we had this animation when loading the search results:
 
-<video width="540" autoplay loop>
+<video width="540" autoplay loop muted>
   <source src="{{ site.baseurl }}public/images/captaintrain.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>{: .center-image }
