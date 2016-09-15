@@ -54,7 +54,7 @@ The first step was to design the parallax animation to give the feeling of speed
 
 ![Layers]({{ site.baseurl }}public/images/animation_layers.png){: .center-image }
 
-Then, the rule is pretty simple: “The further it is, the slower it moves”. For instance, obviously the train had to move faster than the skyline.
+Then, the rule is pretty simple: “The further it is, the slower it moves”. For instance, obviously the wind had to move faster than the skyline.
 
 The principle for animating a layer is also very simple and the same for each layer: I move the layer from right to left. It starts outside the viewport and ends outside the viewport on the other side. It goes in repeat mode infinitely. Finally, further the layer is, greater will be the duration for the animation. Let's some sample code now:
 
@@ -75,7 +75,7 @@ mLayerAnimator.setDuration(ANIMATION_DURATION);
 
 As you can see, it is very easy. This example just animates the X but for some layers (train and birds), I also had to animate the Y.
 
-Another important detail is that to reduce memory footprint, each layer wraps its content. Therefore, Android will only draw the minimum part that changes.
+Another important detail is that to reduce memory footprint, each layer wraps its content. Therefore, Android will only draw the minimum part that changed.
 
 <video width="540" autoplay loop muted>
   <source src="{{ site.baseurl }}public/images/animation_with_borders.mp4" type="video/mp4">
@@ -130,13 +130,13 @@ private void prepareLocomotiveAnimation() {
 }
 {% endhighlight %}
 
-Indeed, no magic. Please note that I could improve this interpolation by using `quadTo` instead of `lineTo` to make it smoother. Also note that we reverse the animation to make it continuous.
+Indeed, no magic. Please note that I should improve this interpolation by using `quadTo` instead of `lineTo` to make it smoother. Also note that we reverse the animation to make it continuous.
 
 ### Make the birds fly
 
-This is the cherry on the cake. I wanted to make the birds fly. Trust me when explaining your work day to your friends, “I made birds fly” can be very confusing :) But let's see how I did it.
+This is the cherry on the cake. I wanted to make the birds fly. When explaining your work day to your friends, “I made birds fly” can be very confusing :) But let's see how I did it.
 
-Well … I said AnimatedVectorDrawables were great right ? So let's use them for this case. First step is to import your VectorDrawable:
+Well … I said AnimatedVectorDrawables were great right ? So they are the perfect solution for this case. First step is to import your VectorDrawable:
 
 {% highlight xml %}
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
