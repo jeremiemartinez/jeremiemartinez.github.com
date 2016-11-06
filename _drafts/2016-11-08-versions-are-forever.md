@@ -1,0 +1,25 @@
+---
+layout: post
+title: "Story of my transport card"
+comments: true
+---
+
+I have a fun story to tell from last night that makes so much sense in Android development that I thought I should share it.
+
+<!-- more -->
+
+Last night I went home following my little routine and my usual subway line. When I went down to my stop, I was stopped by a person from the metro company ([RATP](https://en.wikipedia.org/wiki/RATP_Group)) asking for my transport card. She was not at all interested in controlling my transport card but by its version. Indeed, RATP will stop supporting some older versions of the card and its users will be forced to upgrade in the coming months. 6 million users will have to verify that they have the right version. Every single one of them: old people, young people, busy people, heedless people, every one.
+
+To solve this problem, RATP decided to randomly stop people during the coming months and make them aware that an update was about to come and encourage them to go to desk and to queue in order to get the new version of their transport card. What a mess! If only they could update cards directly… Oh wait…
+
+This is exactly what happens with an Android application. The Android app is the transport card and the server is the card machine. Nothing will force your users to upgrade your app to avoid the stupid bug you wish never existed. You don't have access to your user's device. Once, you shipped your app, you cannot rollback. And let's be clear: forcing users to upgrade or uninstall/reinstall is an experience as awful as forcing a user to queue at the counter on a busy Monday morning.
+
+I am often asked at conferences why we are so careful with our releases. Even our backend developers often asked why we pay so much attention to API, to payloads and so on… The answer is always the same: once the application is released, we don't own it anymore and we will have to undertake it as long as necessary.
+
+Indeed, you don't want to have to explain to each of your users that he needs to upgrade or that he needs to uninstall/install to make his app work properly. A bad and quickly designed API or a stupid bug are not excuses your user can hear. Every release has to be undertaken, so be careful.
+
+I love this quote from Joshua Block:
+
+> APIs, like diamonds, are forever
+
+Well, your old app versions, like diamonds, are forever.
