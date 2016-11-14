@@ -8,7 +8,7 @@ I have a fun story to tell from last night that makes so much sense in Android d
 
 <!-- more -->
 
-Last night, I went home following my little routine and my usual metro line. When I went down to my stop, I was stopped by a person from the metro company ([RATP](https://en.wikipedia.org/wiki/RATP_Group)) asking for my metro pass. Actually, she was not interested in controlling my metro pass but rather by its version. Indeed, RATP will stop supporting some older versions of the card and its users will be forced to upgrade in the coming months. Six million users will have to verify that they have the right version. Every single one of them: old people, young people, busy people, forgetful people, every one.
+Last night, I went home following my little routine and my usual metro line. When I went down to my stop, I was stopped by a person from the metro company ([RATP](https://en.wikipedia.org/wiki/RATP_Group)) asking for my metro pass. Actually, she was not interested in controlling my metro pass but rather by its version. Indeed, RATP will stop supporting an old version of the card and its users will be forced to upgrade in the coming months. Six million users will have to verify that they have the right version. Every single one of them: old people, young people, busy people, forgetful people, every one.
 
 To solve this problem, RATP decided to randomly stop people during the coming months and make them aware that an update was about to come and encourage them to go to desk and to queue in order to get the new version of their metro pass. What a mess! If only they could update cards directly… Oh wait…
 
