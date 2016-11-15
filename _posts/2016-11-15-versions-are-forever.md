@@ -14,9 +14,9 @@ To solve this problem, RATP decided to randomly stop people during the coming mo
 
 This is exactly what happens with an Android application. The Android app is the metro pass and the server is the card machine. Nothing will force your users to upgrade your app to avoid the stupid bug you wish never existed. And let's be clear: forcing users to upgrade or uninstall/reinstall is an experience as awful as forcing a user to queue at the counter on a busy Monday morning.
 
-I am often asked at conferences why we are so careful with our releases. Even our backend developers often asked why we pay so much attention to API, to payloads and so on… The answer is always the same: once the application is released, we don't own it anymore. We will have to undertake it as long as necessary.
+I am often asked at conferences why we are so careful with our releases. Even our backend developers often asked why we pay so much attention to API, to payloads and so on… The answer is always the same: once the application is released, we don't own it anymore. We will have to maintain it as long as necessary.
 
-A bad and quickly designed API or a stupid bug are not excuses your user can hear. Every release has to be undertaken, so be careful.
+A bad and quickly designed API or a stupid bug are not excuses your user can hear. Every release has to be maintained, so be careful.
 
 I love this quote from Joshua Block:
 
