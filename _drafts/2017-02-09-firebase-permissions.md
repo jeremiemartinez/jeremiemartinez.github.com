@@ -4,7 +4,7 @@ title: "Firebase vs permissions"
 comments: true
 ---
 
-Two weeks ago for our last Android version, we release a new feature with Firebase : [Personal App Indexing](https://firebase.google.com/docs/app-indexing/android/personal-content). It was the first time we release a feature based on Firebase in our [Trainline application](https://play.google.com/store/apps/details?id=com.capitainetrain.android). Indeed, we were still using Play Services because we did not have a good reason to migrate yet. Since Personal App Indexing was only available with Firebase, no choice!
+Two weeks ago in our last Android version, we release a new feature with Firebase: [Personal App Indexing](https://firebase.google.com/docs/app-indexing/android/personal-content). It was the first time we release a feature based on Firebase in our [Trainline application](https://play.google.com/store/apps/details?id=com.capitainetrain.android). Indeed, we were still using Play Services because we did not have a good reason to migrate yet. Since Personal App Indexing was only available with Firebase, no choice!
 
 **Spoiler**: we had problems with permissions.
 
@@ -44,9 +44,9 @@ final ConnectionResult connectionResult = new GoogleApiClient.Builder(this).
         }
 {% endhighlight %}
 
-**Second conclusion**: Firebase API is simpler , they handle Play Services connection for you but their implementation does not check for missing permission.
+**Second conclusion**: Firebase API is simpler, they handle Play Services connection for you but their implementation does not check for missing permission.
 
-Therefore, our only way to solve the problem was to find out how can we retrieve this information with Firebase?
+Therefore, our only way to solve the problem was to find out how we can retrieve this information with Firebase?
 
 **Third conclusion**: You can't.
 
@@ -56,4 +56,5 @@ This story ends up with us releasing a hotfix and 10 lines of code I am not prou
 
 **Final conclusion**: be very careful when integrating third party libraries.
 
-Firebase and Play Services version: 10.0.1
+<br/>
+<sub>_Valid for Firebase and Play Services version: 10.0.1_</sub>
