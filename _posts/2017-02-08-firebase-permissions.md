@@ -32,16 +32,16 @@ We then figured out this notification was displayed because these users were den
 
 How can we know that all permissions were granted to propose the feature only in that case?
 
-In fact, this information is available with the Play Services. When you build a new `GoogleApiClient` and connect to it, if a permission is missing we get a `SERVICE_MISSING_PERMISSION` in the `ConnectionResult`:
+In fact, this information is available with the Play Services. When you build a new `GoogleApiClient` and connect to it. If a permission is missing, we get a `SERVICE_MISSING_PERMISSION` in the `ConnectionResult`:
 
 {% highlight java %}
-final ConnectionResult connectionResult = new GoogleApiClient.Builder(this).
+ConnectionResult connectionResult = new GoogleApiClient.Builder(this).
                 addApi(AppIndex.API).
                 build().
                 blockingConnect(3, TimeUnit.SECONDS);
-        if (connectionResult.getErrorCode() == ConnectionResult.SERVICE_MISSING_PERMISSION) {
-            return;
-        }
+if (connectionResult.getErrorCode() == SERVICE_MISSING_PERMISSION) {
+      return;
+}
 {% endhighlight %}
 
 **Second conclusion**: Firebase API is simpler, they handle Play Services connection for you but their implementation does not check for missing permission.
@@ -54,7 +54,7 @@ We solve the problem by using the Play Services to check for the `SERVICE_MISSIN
 
 This story ends up with us releasing a hotfix and 10 lines of code I am not proud of. Hopefully this article could help others.
 
-**Final conclusion**: be very careful when integrating third party libraries.
+**Final conclusion**: Be very careful when integrating third party libraries.
 
 <br/>
 <sub>_Valid for Firebase and Play Services version: 10.0.1_</sub>
