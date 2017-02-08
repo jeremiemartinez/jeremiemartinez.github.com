@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Firebase vs permissions"
+title: "Post-mortem : Firebase vs permissions"
 comments: true
 ---
 
-Two weeks ago in our last Android version, we release a new feature with Firebase: [Personal App Indexing](https://firebase.google.com/docs/app-indexing/android/personal-content). It was the first time we release a feature based on Firebase in our [Trainline application](https://play.google.com/store/apps/details?id=com.capitainetrain.android). Indeed, we were still using Play Services because we did not have a good reason to migrate yet. Since Personal App Indexing was only available with Firebase, no choice!
+Two weeks ago in our last Android version, we released a new feature with Firebase: [Personal App Indexing](https://firebase.google.com/docs/app-indexing/android/personal-content). It was the first time we release a feature based on Firebase in our [Trainline application](https://play.google.com/store/apps/details?id=com.capitainetrain.android). Indeed, we were still using Play Services because we did not have a good reason to migrate yet. Since Personal App Indexing was only available with Firebase, no choice!
 
 **Spoiler**: we had problems with permissions.
 
@@ -28,7 +28,7 @@ We then figured out this notification was displayed because these users were den
 ![Play Services Permissions]({{ site.baseurl }}public/images/permissions_play_services.png){: .center-image }
 
 
-**First conclusion**: Play Services don't seem to work if they don't have all their permissions granted. Even if the feature you are using does not rely on them. Crazy.
+**First conclusion**: Play Services don't seem to work if they don't have all their permissions granted. Even if the feature you are using does not rely on any permission. Crazy.
 
 How can we know that all permissions were granted to propose the feature only in that case?
 
@@ -50,7 +50,7 @@ Therefore, our only way to solve the problem was to find out how we can retrieve
 
 **Third conclusion**: You can't.
 
-We solve the problem by using the Play Services to check for the `SERVICE_MISSING_PERMISSION` and if everything was alright, then we use the Firebase Personal App Indexing feature. Otherwise, we don't.
+We solve the problem by using the Play Services to check for the `SERVICE_MISSING_PERMISSION` and if everything was alright, then and only then we use the Firebase Personal App Indexing feature. Otherwise, we don't.
 
 This story ends up with us releasing a hotfix and 10 lines of code I am not proud of. Hopefully this article could help others.
 
