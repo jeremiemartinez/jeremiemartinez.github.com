@@ -26,6 +26,8 @@ I assume that in 2017 the benefits of code review have been well-known for most 
 
 While sharing knowledge is very difficult when you are alone, all the other advantages keep their values.
 
+I only see advantages by continuing this practice. In the short run, code reviews can help you avoid mistakes and in the long term, it will help new joiners to understand reasons behind certain pieces of code.
+
 ## What strategy I adopted when reviewing myself?
 
 #### Do MR/PR as usual
@@ -41,12 +43,12 @@ I tried to leave several days between creating the PR and reviewing it, sometime
 ![MR]({{ site.baseurl }}public/images/mr.png){: .center-image }
 
 
-#### Review as it was someone else code
+#### Review as it was someone else's code
 
 Because of time, stress or laziness, we tend to be more compliant with our code than we should. By doing the review several days later, it is easier to be objective.
 
 #### Comments, comments, comments…
-Exactly like you would do with someone else code, I tried to comments PR as much as possible. It is great to keep reminder about everything required before merging. Don't trust your memory.
+Exactly like you would do with someone else code, I tried to comment PR as much as possible. It is great to keep reminder about everything required before merging. Don't trust your memory.
 
 ![MR]({{ site.baseurl }}public/images/comments.png){: .center-image }
 
@@ -64,4 +66,4 @@ Finally, some PR, like architecture or object oriented design, are more structur
 
 ## Conclusion & feedback
 
-This article can look overkill and time consuming for a single developer team but I truly believe it is worth the hassles and it proved to be very useful for me.
+These practices can look overkill and time consuming for a single developer team but I truly believe it is worth the hassles and it proved to be very useful for me.
