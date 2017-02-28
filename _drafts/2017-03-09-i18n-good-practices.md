@@ -4,15 +4,13 @@ title: "Internationalizing an Android app"
 comments: true
 ---
 
-At Trainline Europe, we sell train tickets for several countries in several languages. One could think translating an app is easy, but one would be wrong.
+At Trainline Europe, we sell train tickets for several countries in several languages. One could think translating an app is an easy task, but I believe one would be wrong.
 
-Indeed, translating an app is not only about translating words, it is integrating a whole new language, culture and market into the same product. If you did not think about it from the beginning of your app, you will end up in a lot of troubles.
+Indeed, translating an app is not only about translating words, it is integrating a whole new language, culture and market into the same product. If you did not think about it from the beginning, you will end up in a lot of troubles.
 
 I will walk you through some good practices we have at Trainline Europe based on our experience and the lessons we learned, sometimes the hard way.
 
 <!-- more -->
-
-This article is a non-exhaustive repository of rules we learned while writing code for a multi-language app.
 
 ### 1. Follow formatting rules
 
@@ -20,7 +18,7 @@ This article is a non-exhaustive repository of rules we learned while writing co
 
 These are several questions where languages differ. By respecting these simple rules, your users will feel home and “local” in your app. Indeed, being able to parse without any trouble a date or a price is a mandatory first step. What's the point of having a beautiful layout if your users have trouble parsing simple information? None.
 
-SEARCH RESULT DETAIL SCRENSHOT IN FR AND EN
+![MR]({{ site.baseurl }}public/images/prices.png){: .center-image }
 
 ### 2. Follow typographic rules
 
@@ -28,7 +26,7 @@ It is exactly the same problem that the previous rule. Indeed, if you don't resp
 
 For instance if you don't respect non-breakable spaces in French before punctuation, you could have this kind of behavior:
 
-NON BREAKABLE SPACES SCREENSHOT
+![MR]({{ site.baseurl }}public/images/nonbreakable.png){: .center-image }
 
 These non-breakable spaces are also important for your brand. You don't want your brand to be cut in half.
 
@@ -54,9 +52,7 @@ For instance, a sentence can start with a punctuation sign in Spanish: `¡Hola!`
 
 Gender in Spanish can end with an `a` or an `o`, but in French we will add an `e` at the end. Then, an implementation that would just concatenate an `e` would disgracefully fail in other languages.
 
-Finally, while in English, plurals are supported with `one` and `other`: ticket or tickets. But in Russian:
-
-ADD RUSSIAN TRANSLATION
+Finally, while in English, plurals are supported with `one` and `other`: ticket or tickets, in Russian, they have `one`, `few` and `many`: билет, билета and билетов.
 
 Once again a proof that languages are full of surprises.
 
@@ -64,7 +60,7 @@ Once again a proof that languages are full of surprises.
 
 Translating is difficult but it is even more difficult when you don't understand what you are translating. In order to help your translators, you should always prefer naming variable with a meaningful name rather than just the position. Exactly like your method signatures, naming the parameters is very important to understand what the method does.
 
-At Trainline, we adopted the following format: `%{variable}`. We also implemented our own parser to be able to replace variable with their content dynamically. The implementation can be found here: LINK?
+At Trainline, we adopted the following format: `%{variable}`. We also implemented our own parser to be able to replace variable with their content dynamically. It is very similar to what [Phrase](https://github.com/square/phrase) does.
 
 Let's see an example:
  -  `The %{type} card ending in %{lastDigit} and expires on %{date}.`
@@ -111,10 +107,8 @@ Last rule but not least, Right-To-Left (RTL) languages like Arabic can be very t
 
 ### Conclusion
 
-Android is already very smart. Indeed since N, you can have a list of speaking languages and order them by preferences. Unfortunately, I am still missing region choices. Indeed in my case my phone is in English and some apps use this information to guess the preferred currency whereas I would still like to buy in euros. I need English from France as barbaric it may sound.
+Android is already very smart and has recently improved its handling of locales. Indeed since N, you can have a list of speaking languages and order them. Then, to get the most of the Android system, you should embrace it and be ready to translate your app at any moment.
 
-But back on the topic, to get the most of the Android system, you should embrace it and be ready to translate your app at any moment.
-
-Finally, I hope I proved with this article that you cannot assume anything about languages. You will always be surprised. By respecting simple rules you ensure your app future and growth in multiple markets.
+Finally, I hope I proved with this article that you cannot assume anything about languages. However, by respecting simple rules you can ensure your app future and growth in multiple markets.
 
 PS: Thanks [Vincent](https://twitter.com/vincevlo) who did a huge part of the work with me in compiling the rules of this article.
