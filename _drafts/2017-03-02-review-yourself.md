@@ -6,13 +6,13 @@ comments: true
 
 This is not an Android focus article like I am used to on this blog. However, it describes a situation that can happen a lot to a mobile developer: a single developer team.
 
-In this blog post, I will explain why and how I continued to do code reviews even if I was alone in my team.
+In this blog post, I will explain why and how I continued to do code reviews.
 
 <!-- more -->
 
 ## Context
 
-Recently I have been the only Android developer of Trainline Europe. I had to adapt the methodologies, the practices and the habits we followed as a team. The most important practice I wanted to keep was **code review**.
+In this context, I had to adapt the methodologies, the practices and the habits we followed as a team. The most important practice I wanted to keep was **code review**.
 
 ## Why is code review important?
 
@@ -48,7 +48,7 @@ I tried to leave several days between creating the PR and reviewing it, sometime
 Because of time, stress or laziness, we tend to be more compliant with our code than we should. By doing the review several days later, it is easier to be objective.
 
 #### Comments, comments, comments…
-Exactly like you would do with someone else code, I tried to comment PR as much as possible. It is great to keep reminder about everything required before merging. Don't trust your memory.
+Exactly like you would do with someone else's code, I tried to comment PR as much as possible. It is great to keep reminder about everything required before merging. Don't trust your memory.
 
 ![MR]({{ site.baseurl }}public/images/comments.png){: .center-image }
 
