@@ -63,7 +63,8 @@ Translating is difficult but it is even more difficult when you don't understand
 At Trainline, we adopted the following format: `%{variable}`. We also implemented our own parser to be able to replace variable with their content dynamically. It is very similar to what [Phrase](https://github.com/square/phrase) does.
 
 Let's see an example:
- -  `The %{type} card ending in %{lastDigit} and expires on %{date}.`
+
+-  `The %{type} card ending in %{lastDigit} and expires on %{date}.`
 - `The $1 card ending in $2 and expires on $3.`
 
 I think the example speak for itself. Indeed, readability is king.
@@ -73,14 +74,13 @@ I think the example speak for itself. Indeed, readability is king.
 Indeed, it could be a mistake. My advice is to make a new one with the same content instead. We recently encountered this problem in Trainline Europe website:
 
 - English: Cancel (an action) / Cancel (a ticket)
-Spanish
 - Spanish: Cancelar (una acción) / Anular (un billete)
 
 We were using a common `cancel` translation since it was translated the same in English, but once we added Spanish it was not working anymore.
 
 ### 8. Context is key
 
-If you are able to choose a tool (and you should) where you can add screenshots, comments and explanation about each variable, your translators will thank you. More they have context, more precise their translations can be.
+If you are able to choose a tool (and you should) where you can add screenshots, comments and explanation about each variable, your translators will thank you. Better the context is, more precise their translations can be.
 
 ### 9. Avoid using locales as variable of other locales
 
@@ -103,7 +103,7 @@ Every time you use reflexion to dynamically generate keys, you lose the only way
 
 ### 11. Think RTL
 
-Last rule but not least, Right-To-Left (RTL) languages like Arabic can be very tricky. Indeed, it does not only impact strings but layouts too. Fortunately, Android provides a way since API 17 with attributes like `toStartOf`, `marginStart`, and so on. If you did not think about it at beginning, you may have to update most of your layout files.
+Last but not least, Right-To-Left (RTL) languages like Arabic can be very tricky. Indeed, it does not only impact strings but layouts too. Fortunately, Android provides a way since API 17 with attributes like `toStartOf`, `marginStart`, and so on. If you did not think about it at first, you may have to update most of your layout files.
 
 ### Conclusion
 
