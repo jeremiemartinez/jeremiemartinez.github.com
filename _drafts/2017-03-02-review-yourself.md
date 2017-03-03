@@ -18,15 +18,15 @@ In this context, I had to adapt the methodologies, the practices and the habits 
 
 I assume that in 2017 the benefits of code review have been well-known for most of readers:
 
-- Sharing knowledge
-- Avoid mistakes
-- Make sure conventions are respected
-- Increase readability of the code
-- Keep history of discussions
+- sharing knowledge;
+- avoid mistakes;
+- make sure conventions are respected;
+- increase readability of the code;
+- keep history of discussions.
 
 While sharing knowledge is very difficult when you are alone, all the other advantages keep their values.
 
-I only see advantages by continuing this practice. In the short run, code reviews can help you avoid mistakes and in the long term, it will help new joiners to understand reasons behind certain pieces of code.
+I only see advantages by continuing this practice. In the short run, code reviews can help you avoid mistakes. In the long term, it will help new joiners to understand reasons behind certain pieces of code.
 
 ## What strategy I adopted when reviewing myself?
 
