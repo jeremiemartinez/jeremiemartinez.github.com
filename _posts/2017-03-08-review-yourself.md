@@ -12,7 +12,7 @@ In this blog post, I will explain why and how I continued to do code reviews.
 
 ## Context
 
-In this context, I had to adapt the methodologies, the practices and the habits we followed as a team. The most important practice I wanted to keep was **code review**.
+In this new context of an 1-developer team, I had to adapt the methodologies, the practices and the habits we followed as a team. The most important practice I wanted to keep was **code review**.
 
 ## Why is code review important?
 
