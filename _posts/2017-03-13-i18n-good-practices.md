@@ -88,7 +88,7 @@ Chaining and embedded locales can lead to errors from translators. As an advice,
 
 ### 10. Avoid reflexion and dynamically building keys
 
-Every time you use reflexion to dynamically generate keys, you lose the only way you had to find which locales are used and where. Moreover, if you use a shrinker that will remove unused strings from your final APK, these locales will be removed. Of course, Google provides a way to let him know thanks to the `keep.xml` files. In Trainline Europe app, we use this technique for keys sent by the server for carriers or discount cards.
+Every time you use reflexion to dynamically generate keys, you lose the only way you had to find which locales are used and where. Moreover, if you use a shrinker that will remove unused strings from your final APK, these locales will be removed. Of course, Google provides a way to let it know thanks to the `keep.xml` files. In Trainline Europe app, we use this technique for keys sent by the server for carriers or discount cards.
 
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
