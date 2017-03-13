@@ -52,7 +52,7 @@ For instance, a sentence can start with a punctuation sign in Spanish: `¡Hola!`
 
 Gender in Spanish can end with an `a` or an `o`, but in French we will add an `e` at the end. Then, an implementation that would just concatenate an `e` would disgracefully fail in other languages.
 
-Finally, while in English, plurals are supported with `one` and `other`: ticket or tickets, in Russian, they have `one`, `few` and `many`: билет, билета and билетов.
+Finally, while in English, plurals are supported with `one` and `other`: ticket or tickets, in Russian, they have `one`, `few` and `many`: билет, билета and билетов. More about this topic can be found at this [link](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html).
 
 Once again a proof that languages are full of surprises.
 
@@ -65,7 +65,7 @@ At Trainline, we adopted the following format: `%{variable}`. We also implemente
 Let's see an example:
 
 -  `The %{type} card ending in %{lastDigit} and expires on %{date}.`
-- `The $1 card ending in $2 and expires on $3.`
+- `The %1$s card ending in %2$s and expires on %3$s.`
 
 I think the example speak for itself. Indeed, readability is king.
 
@@ -84,11 +84,11 @@ If you are able to choose a tool (and you should) where you can add screenshots,
 
 ### 9. Avoid using locales as variable of other locales
 
-Chaining and embedded locales can lead to errors from translators. As an advice, you should avoid this situation and try to create full locales readable at once. Once again, help your translators with as much context as you can.
+Chaining and embedded locales can lead to errors from translators. As an advice, you should avoid this situation and try to create full readable locales at once. Once again, help your translators with as much context as you can.
 
 ### 10. Avoid reflexion and dynamically building keys
 
-Every time you use reflexion to dynamically generate keys, you lose the only way you had to find which locales are used and where. Moreover, if you use a shrinker that will remove unused strings from your final APK, these locales will be removed. Of course, Google provides a way to let it know thanks to the `keep.xml` files. In Trainline Europe app, we use this technique for keys sent by the server for carriers or discount cards.
+Every time you use reflection to dynamically generate keys, you lose the only way you had to find which locales are used and where. Moreover, if you use a shrinker that will remove unused strings from your final APK, these locales will be removed. Of course, Google provides a way to let it know thanks to the `keep.xml` files. In Trainline Europe app, we use this technique for keys sent by the server for carriers or discount cards.
 
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
