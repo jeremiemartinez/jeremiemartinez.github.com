@@ -107,8 +107,8 @@ Last but not least, Right-To-Left (RTL) languages like Arabic can be very tricky
 
 ### Conclusion
 
-Android is already very smart and has recently improved its handling of locales. Indeed since N, you can have a list of speaking languages and order them. Then, to get the most of the Android system, you should embrace it and be ready to translate your app at any moment.
+Android is already very smart and has even improved its handling of locales recently. Since N, users can now have a list of locales and order them. Android locales system is very powerful and you should embrace it to get your app ready for translations at any moment.
 
-Finally, I hope I proved with this article that you cannot assume anything about languages. However, by respecting simple rules you can ensure your app future and growth in multiple markets.
+I hope I proved with this article that you cannot assume anything about languages. However, by respecting simple rules you can ensure your app future and growth in multiple markets.
 
 PS: Thanks [Vincent](https://twitter.com/vincevlo) who did a huge part of the work with me in compiling the rules of this article.
